@@ -1,6 +1,7 @@
 package com.meridian.management;
 
-import com.meridian.collection.NonRepeating;
+import com.meridian.patterns.builder.Client;
+import com.meridian.patterns.builder2.Seller;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.apache.logging.log4j.LogManager;
@@ -35,6 +36,10 @@ public class ManagementApplication {
 		}catch(java.util.InputMismatchException e){
 			LOGGER.error("Invalid input" + e);
 		}
+
+		Client client = new Client.ClientBuilder("Client Name", "Client last Name").age(21).build();
+
+		Seller seller = new Seller.SellerBuilder(10000, "Rod").build();
 	}
 
 }
