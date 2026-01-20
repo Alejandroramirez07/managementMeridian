@@ -2,6 +2,12 @@ package com.meridian.management;
 
 import com.meridian.patterns.builder.Client;
 import com.meridian.patterns.builder2.Seller;
+import com.meridian.patterns.decorator.AssuranceDecorator;
+import com.meridian.patterns.decorator.ShipmentCost;
+import com.meridian.patterns.decorator.SimpleShipment;
+import com.meridian.patterns.decorator2.CertificationDecorator;
+import com.meridian.patterns.decorator2.SimpleTraining;
+import com.meridian.patterns.decorator2.Training;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.apache.logging.log4j.LogManager;
@@ -40,6 +46,10 @@ public class ManagementApplication {
 		Client client = new Client.ClientBuilder("Client Name", "Client last Name").age(21).build();
 
 		Seller seller = new Seller.SellerBuilder(10000, "Rod").build();
+
+		ShipmentCost shipmentCost = new AssuranceDecorator(new SimpleShipment());
+
+		Training training = new CertificationDecorator(new SimpleTraining());
 	}
 
 }
