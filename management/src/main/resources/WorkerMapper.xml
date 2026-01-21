@@ -1,0 +1,12 @@
+<mapper namespace="com.meridian.patterns.mvc.WorkerMapper">
+    <resultMap id="WorkerResult" type="Worker">
+        <id property="idJob" column="id" />
+        <result property="name" column="full_name" />
+        <result property="experience" column="experience" />
+    </resultMap>
+
+    <select id="getWorker" resultMap="WorkerResult">
+        SELECT id, full_name, experience FROM workers WHERE id = #{id}
+    </select>
+
+</mapper>
